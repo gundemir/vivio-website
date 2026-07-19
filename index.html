@@ -162,11 +162,11 @@
     right: 10vw;
     top: 52%;
     transform: translateY(-50%);
-    width: min(58%, 740px);
+    width: min(66%, 860px);
     aspect-ratio: 760 / 427;
     background: url('concept4.png') no-repeat center center;
     background-size: contain;
-    opacity: 0.4;
+    opacity: 0.28;
     pointer-events: none;
     z-index: 0;
   }
@@ -546,7 +546,17 @@
   }
 
   /* ─── TEAM ─── */
-  .team-section { background: var(--white) url('concept2.png') no-repeat center center; background-size: cover; border-bottom: 1px solid var(--border); }
+  .team-section { position: relative; background: var(--white); border-bottom: 1px solid var(--border); }
+  .team-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('concept2.png') no-repeat center center;
+    background-size: cover;
+    opacity: 0.4;
+    pointer-events: none;
+  }
+  .team-section .container { position: relative; z-index: 1; }
   .team-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
