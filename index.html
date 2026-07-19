@@ -579,6 +579,44 @@
   }
   .team-info p { font-size: 0.82rem; color: var(--ink-light); line-height: 1.55; }
 
+  .team-card.member {
+    border-style: solid;
+    border-color: var(--border);
+    align-items: flex-start;
+  }
+  .team-card.member:hover { border-color: var(--vivio-accent); background: var(--paper); }
+  .team-avatar.photo {
+    width: 68px;
+    height: 68px;
+    min-width: 68px;
+    background: none;
+    overflow: hidden;
+  }
+  .team-avatar.photo img { width: 100%; height: 100%; object-fit: cover; }
+  .team-links {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: 0.9rem;
+  }
+  .team-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--vivio-mid);
+    padding: 0.28rem 0.6rem;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+  }
+  .team-links a:hover { border-color: var(--vivio-accent); color: var(--vivio-dark); background: var(--vivio-pale); }
+  .team-links a svg { width: 12px; height: 12px; }
+
   /* ─── PUBLICATIONS ─── */
   .pub-bar {
     background: var(--vivio-pale);
@@ -1031,17 +1069,27 @@
   <div class="container">
     <div class="section-label fade-in">Our Team</div>
     <h2 class="section-title fade-in">Growing the Vivio team</h2>
-    <p class="section-subtitle fade-in">Vivio is expanding its consulting bench to broaden the scientific and regulatory expertise we bring to client programmes. Two consultants are joining the team, with profiles to be announced shortly.</p>
+    <p class="section-subtitle fade-in">Vivio is expanding its consulting bench to broaden the expertise we bring to client programmes.</p>
 
     <div class="team-grid">
-      <div class="team-card fade-in">
-        <div class="team-avatar">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-6 8-6s8 2 8 6"/></svg>
+      <div class="team-card member fade-in">
+        <div class="team-avatar photo">
+          <img src="Cansu.jpeg" alt="Cansu Eğitimci">
         </div>
         <div class="team-info">
-          <h3>New Consultant</h3>
-          <div class="team-role">Profile to be announced</div>
-          <p>An additional consultant is joining Vivio to strengthen our capacity across science and regulatory strategy. Full profile to follow.</p>
+          <h3>Cansu Eğitimci</h3>
+          <div class="team-role">Consultant</div>
+          <p>Cansu is a PMP-certified project and quality manager with over seven years in clinical research and quality assurance. At Koç University's TIREX she led planning and financial management for Horizon 2020 programmes, and she earlier established Türkiye's first high-risk Phase 1 trial centre. She strengthens Vivio's project delivery, GCP, and regulatory compliance.</p>
+          <div class="team-links">
+            <a href="https://www.linkedin.com/in/rcansuegitimci/" target="_blank" rel="noopener" aria-label="LinkedIn profile">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11.02 5 2.5 2.5 0 01-.02-5zM3 8.98h4V21H3zM9 8.98h3.8v1.64h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.35c0-1.28-.02-2.92-1.78-2.92-1.78 0-2.05 1.39-2.05 2.83V21H9z"/></svg>
+              LinkedIn
+            </a>
+            <a href="https://orcid.org/0009-0001-5880-4648" target="_blank" rel="noopener" aria-label="ORCID iD">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10.5" stroke="currentColor" stroke-width="1.5"/><text x="12" y="16" text-anchor="middle" font-size="10" font-weight="700" fill="currentColor" font-family="'DM Sans', sans-serif">iD</text></svg>
+              ORCID iD
+            </a>
+          </div>
         </div>
       </div>
 
