@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Notice · Vivio Research &amp; Consultancy</title>
+<meta name="description" content="How Vivio Research & Consultancy handles personal data, under the Turkish KVKK (Law No. 6698) and the EU GDPR.">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --vivio-dark: #1B4332;
+    --vivio-mid: #2D6A4F;
+    --vivio-accent: #74C69D;
+    --vivio-pale: #F0FFF4;
+    --ink: #1a1a1a;
+    --ink-light: #4a4a4a;
+    --ink-muted: #7a7a7a;
+    --paper: #FAFCFA;
+    --white: #ffffff;
+    --border: #e0e8e2;
+    --serif: 'Source Serif 4', Georgia, serif;
+    --sans: 'DM Sans', -apple-system, sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: var(--sans);
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(250, 252, 250, 0.9);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .site-header .bar {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 1.1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .wordmark {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    color: var(--vivio-dark);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .wordmark span { color: var(--vivio-accent); }
+  .back-link {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--vivio-mid);
+    text-decoration: none;
+  }
+  .back-link:hover { color: var(--vivio-dark); }
+
+  main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 4.5rem 2rem 5rem;
+  }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--vivio-mid);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.3rem;
+  }
+  .eyebrow::before { content: ''; width: 32px; height: 1px; background: var(--vivio-accent); }
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 400;
+    line-height: 1.18;
+    color: var(--vivio-dark);
+    letter-spacing: -0.02em;
+    margin-bottom: 0.8rem;
+  }
+  .updated {
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+    margin-bottom: 2.6rem;
+  }
+  .intro {
+    font-size: 1.05rem;
+    color: var(--ink-light);
+    line-height: 1.8;
+    padding-bottom: 2.2rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2.6rem;
+  }
+
+  section.block { margin-bottom: 2.4rem; }
+  h2 {
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--vivio-dark);
+    margin-bottom: 0.9rem;
+  }
+  p { color: var(--ink-light); margin-bottom: 0.9rem; }
+  p:last-child { margin-bottom: 0; }
+  ul { list-style: none; margin: 0.4rem 0 0.9rem; display: grid; gap: 0.5rem; }
+  li { position: relative; padding-left: 1.1rem; color: var(--ink-light); }
+  li::before { content: ''; position: absolute; left: 0; top: 0.62rem; width: 5px; height: 5px; background: var(--vivio-accent); border-radius: 50%; }
+  a.inline { color: var(--vivio-mid); text-decoration: underline; text-underline-offset: 2px; }
+  a.inline:hover { color: var(--vivio-dark); }
+  strong { color: var(--ink); font-weight: 600; }
+
+  .entity {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-left: 2px solid var(--vivio-dark);
+    border-radius: 4px;
+    padding: 1.4rem 1.6rem;
+    font-size: 0.92rem;
+    line-height: 1.85;
+    color: var(--ink-light);
+  }
+  .entity strong { display: block; color: var(--vivio-dark); font-family: var(--serif); font-size: 1.05rem; margin-bottom: 0.3rem; font-weight: 600; }
+
+  footer {
+    background: var(--vivio-dark);
+    color: rgba(255,255,255,0.5);
+    padding: 3rem 2rem;
+    text-align: center;
+    font-size: 0.8rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  footer .footer-legal { margin: 0 auto; max-width: 760px; font-size: 0.72rem; line-height: 1.7; color: rgba(255,255,255,0.4); }
+  footer .footer-links { margin-top: 1.2rem; display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
+  footer .footer-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.78rem; }
+  footer .footer-links a:hover { color: var(--vivio-accent); }
+  footer .footer-copy { margin-top: 1.2rem; }
+
+  @media (max-width: 600px) {
+    main { padding: 3rem 1.5rem 4rem; }
+    .site-header .bar { padding: 1rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="bar">
+    <a href="/" class="wordmark">Vivio<span>.</span></a>
+    <a href="/" class="back-link">← Back to site</a>
+  </div>
+</header>
+
+<main>
+  <div class="eyebrow">Legal</div>
+  <h1>Privacy Notice</h1>
+  <p class="updated">Last updated: July 2026</p>
+
+  <p class="intro">Vivio Research Danışmanlık Ltd. Şti. ("Vivio", "we", "us") respects your privacy. This notice explains how we collect and use personal data when you visit <strong>vivioresearch.com</strong> or contact us, in line with the Turkish Personal Data Protection Law No. 6698 (KVKK) and, for individuals in the European Economic Area and the United Kingdom, the General Data Protection Regulation (GDPR).</p>
+
+  <section class="block">
+    <h2>1. Data controller</h2>
+    <p>For the purposes of the KVKK and the GDPR, the data controller is:</p>
+    <div class="entity">
+      <strong>Vivio Research Danışmanlık Limited Şirketi</strong>
+      Cevizli Mah. Zuhal Cad. A Blok No: 46, İç Kapı No: 50, Maltepe, İstanbul, Türkiye<br>
+      İstanbul Trade Registry No: 1133142 · MERSIS No: 0925132359400001<br>
+      Tax Office (Kartal) · Tax No (VKN): 9251323594<br>
+      Contact: <a class="inline" href="mailto:gundemir@vivioresearch.com">gundemir@vivioresearch.com</a>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>2. Personal data we collect</h2>
+    <p>We collect only what we need:</p>
+    <ul>
+      <li><strong>Information you provide.</strong> When you use our contact form or email us, we collect your name, email address, and the content of your message.</li>
+      <li><strong>Technical data.</strong> Our hosting provider automatically logs limited technical information, such as your IP address, browser type, and the pages you view, for the security and proper operation of the site.</li>
+    </ul>
+    <p>We do not intentionally collect special categories of personal data, and we ask that you do not include sensitive information in your messages.</p>
+  </section>
+
+  <section class="block">
+    <h2>3. Why we use your data</h2>
+    <p>We process personal data to respond to your enquiries and provide information about our services, to take steps at your request before any possible engagement, to maintain the security and integrity of our website, and to comply with our legal obligations.</p>
+  </section>
+
+  <section class="block">
+    <h2>4. Legal bases for processing</h2>
+    <p>Under the GDPR, we rely on the performance of steps taken at your request prior to a contract (Article 6(1)(b)), our legitimate interests in responding to enquiries and keeping our site secure (Article 6(1)(f)), and your consent where you voluntarily choose to contact us (Article 6(1)(a)).</p>
+    <p>Under the KVKK, we rely on the grounds set out in Article 5, in particular processing that is necessary for the establishment or performance of a contract (Article 5/2-c) and processing necessary for our legitimate interests (Article 5/2-f), and, where applicable, your explicit consent (Article 5/1).</p>
+  </section>
+
+  <section class="block">
+    <h2>5. Sharing your data</h2>
+    <p>We do not sell your personal data. We use trusted service providers who act as data processors on our behalf and only on our instructions, including our website hosting provider (Netlify) and our email and productivity provider (Google Workspace). We may also disclose personal data where required to do so by law or by a competent authority.</p>
+  </section>
+
+  <section class="block">
+    <h2>6. International transfers</h2>
+    <p>Because our hosting and email providers operate globally, your personal data may be stored or processed on servers located outside Türkiye and the European Economic Area, including in the European Union and the United States. Where this happens, we rely on appropriate safeguards and, for transfers subject to the KVKK, on the transfer conditions set out in that law.</p>
+  </section>
+
+  <section class="block">
+    <h2>7. How long we keep your data</h2>
+    <p>We keep enquiry data only for as long as needed to respond to you and for a reasonable period afterwards, after which we delete or anonymise it, unless a longer retention period is required by law.</p>
+  </section>
+
+  <section class="block">
+    <h2>8. Your rights</h2>
+    <p>Under Article 11 of the KVKK, you have the right to learn whether your personal data is being processed; to request information about the processing; to learn its purpose and whether the data is used accordingly; to know the third parties to whom it is transferred; to request correction of incomplete or inaccurate data; to request deletion or destruction of your data; to object to any adverse outcome arising solely from automated analysis; and to claim compensation for damage caused by unlawful processing.</p>
+    <p>If the GDPR applies to you, you also have the rights to access, rectification, erasure, restriction of processing, objection, and data portability, and the right to withdraw consent at any time.</p>
+    <p>To exercise any of these rights, please contact us at <a class="inline" href="mailto:gundemir@vivioresearch.com">gundemir@vivioresearch.com</a>. You also have the right to lodge a complaint with the Turkish Personal Data Protection Authority (Kişisel Verileri Koruma Kurumu, <a class="inline" href="https://www.kvkk.gov.tr" target="_blank" rel="noopener">kvkk.gov.tr</a>) or, if you are in the EEA or the UK, with your local data protection supervisory authority.</p>
+  </section>
+
+  <section class="block" id="cookies">
+    <h2>9. Cookies</h2>
+    <p>Our website currently uses only strictly necessary cookies required for its basic operation and security. We do not use advertising, analytics, or tracking cookies, and we do not build profiles of our visitors. Because we set no non-essential cookies, we do not display a cookie consent banner.</p>
+    <p>If we introduce analytics or other non-essential cookies in future, we will update this notice and, where the law requires it, ask for your consent beforehand. You can control or delete cookies at any time through your browser settings.</p>
+  </section>
+
+  <section class="block">
+    <h2>10. Data security</h2>
+    <p>We take reasonable technical and organisational measures to protect personal data against loss, misuse, and unauthorised access, disclosure, or alteration.</p>
+  </section>
+
+  <section class="block">
+    <h2>11. Changes to this notice</h2>
+    <p>We may update this notice from time to time. The date shown at the top indicates when it was last revised.</p>
+  </section>
+
+  <section class="block">
+    <h2>12. Contact</h2>
+    <p>For any question about this notice or about how we handle your personal data, please contact the data controller at <a class="inline" href="mailto:gundemir@vivioresearch.com">gundemir@vivioresearch.com</a>.</p>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-legal">
+    <p>Vivio Research Danışmanlık Ltd. Şti. · Cevizli Mah. Zuhal Cad. A Blok No: 46, İç Kapı No: 50, Maltepe, İstanbul, Türkiye</p>
+    <p>İstanbul Trade Registry No 1133142 · MERSIS 0925132359400001 · Tax Office (Kartal) VKN 9251323594</p>
+  </div>
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="/privacy.html#cookies">Cookie Policy</a>
+  </div>
+  <p class="footer-copy">© 2026 Vivio Research Danışmanlık Ltd. Şti. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
