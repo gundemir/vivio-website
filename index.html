@@ -138,24 +138,26 @@
     padding-bottom: 6rem;
     position: relative;
     overflow: hidden;
+    background: #0d2018 url('hero-bg.jpg') center center / cover no-repeat;
   }
   .hero-rule {
     width: 48px;
     height: 2px;
-    background: var(--vivio-dark);
+    background: var(--vivio-accent);
     margin-bottom: 1.8rem;
   }
 
   .hero::before {
     content: '';
     position: absolute;
-    top: -120px;
-    right: -200px;
-    width: 700px;
-    height: 700px;
-    background: radial-gradient(circle, rgba(116,198,157,0.08) 0%, transparent 70%);
+    inset: 0;
+    background: linear-gradient(90deg, rgba(10,26,19,0.85) 0%, rgba(10,26,19,0.55) 45%, rgba(10,26,19,0.12) 100%);
     pointer-events: none;
+    z-index: 0;
   }
+  .hero::after { display: none; }
+  .hero .container { position: relative; z-index: 1; }
+  .hero .section-label { color: var(--vivio-accent); }
 
   .hero-grid {
     display: grid;
@@ -170,18 +172,18 @@
     font-size: clamp(2.6rem, 5.5vw, 4rem);
     font-weight: 400;
     line-height: 1.12;
-    color: var(--vivio-dark);
+    color: #ffffff;
     letter-spacing: -0.03em;
     margin-bottom: 1.6rem;
   }
   .hero h1 em {
     font-style: italic;
-    color: var(--vivio-mid);
+    color: var(--vivio-accent);
   }
 
   .hero-text {
     font-size: 1.1rem;
-    color: var(--ink-light);
+    color: rgba(255,255,255,0.9);
     line-height: 1.8;
     margin-bottom: 2.5rem;
     max-width: 540px;
@@ -192,16 +194,16 @@
     align-items: center;
     gap: 0.6rem;
     padding: 0.85rem 2rem;
-    background: var(--vivio-dark);
-    color: var(--white);
+    background: var(--vivio-accent);
+    color: var(--vivio-dark);
     text-decoration: none;
     font-size: 0.88rem;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.03em;
     border-radius: 2px;
     transition: background 0.2s;
   }
-  .hero-cta:hover { background: var(--vivio-mid); }
+  .hero-cta:hover { background: #a9dcc0; }
   .hero-cta svg { width: 16px; height: 16px; }
 
   .hero-stats {
@@ -531,7 +533,17 @@
   }
 
   /* ─── TEAM ─── */
-  .team-section { background: var(--white); border-bottom: 1px solid var(--border); }
+  .team-section { position: relative; background: var(--white); border-bottom: 1px solid var(--border); }
+  .team-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('concept2.png') no-repeat center center;
+    background-size: cover;
+    opacity: 0.4;
+    pointer-events: none;
+  }
+  .team-section .container { position: relative; z-index: 1; }
   .team-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -825,6 +837,7 @@
 
   /* ─── RESPONSIVE ─── */
   @media (max-width: 900px) {
+    .hero::after { display: none; }
     .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     .hero-stats { max-width: 400px; }
     .services-grid { grid-template-columns: 1fr 1fr; }
@@ -1059,27 +1072,27 @@
         <div class="founder-highlights">
           <div class="highlight-item">
             <div class="highlight-bullet"></div>
-            <p><strong>Founding facility manager</strong> of Türkiye's first GLP-certified preclinical testing laboratory (IBG DACL)</p>
+            <p><strong>Founding facility manager</strong> of Türkiye's first OECD GLP-certified preclinical testing laboratory (IBG DACL)</p>
           </div>
           <div class="highlight-item">
             <div class="highlight-bullet"></div>
-            <p><strong>Designed Türkiye's first</strong> bispecific therapeutic antibody programme (BİSAN)</p>
+            <p><strong>Designed Türkiye's first</strong> bispecific therapeutic antibody programme (BISAN), involved in the development of several biosimilars</p>
           </div>
           <div class="highlight-item">
             <div class="highlight-bullet"></div>
-            <p><strong>ATMP platform design</strong> for iPSC-derived CAR-T, CAR-Tregs, CAR-DCs, beta cells, iHEP</p>
+            <p><strong>ATMP/CGT platform design</strong> for iPSC-derived CAR-T, CAR-Tregs, CAR-Bregs, CAR-DCs, beta cells, iHEPs</p>
           </div>
           <div class="highlight-item">
             <div class="highlight-bullet"></div>
-            <p><strong>3 EU consortia</strong> coordinated: VANGUARD, UniTol, HoliDC (€19.6M combined proposal budget)</p>
+            <p><strong>Several EU consortia</strong> coordinated (VANGUARD, UniTol, HoliDC, GENESIS, IMMUNOGLYPH) with a &gt;€30M combined proposal budget</p>
           </div>
           <div class="highlight-item">
             <div class="highlight-bullet"></div>
-            <p><strong>Non-clinical study design</strong> consulted on 10+ molecules including eculizumab biosimilar</p>
+            <p><strong>Non-clinical study design</strong> consulted on 10+ therapeutics including small molecules, biosimilars, ATMPs/CGTs</p>
           </div>
           <div class="highlight-item">
             <div class="highlight-bullet"></div>
-            <p><strong>Published in</strong> Nature Communications, FASEB Journal, with 8 peer-reviewed publications</p>
+            <p><strong>High-impact publications</strong> in Nature Communications and Neuro-Oncology</p>
           </div>
         </div>
       </div>
