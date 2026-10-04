@@ -10,7 +10,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <meta name="description" content="Boutique biotech consultancy and emerging preclinical CRO partner bridging scientific R&D, regulatory affairs, and commercial strategy.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
     --vivio-dark: #1B4332;
@@ -24,9 +24,10 @@
     --paper: #FAFCFA;
     --white: #ffffff;
     --border: #e0e8e2;
-    --serif: 'Source Serif 4', Georgia, serif;
-    --sans: 'DM Sans', -apple-system, sans-serif;
-    --mono: 'JetBrains Mono', monospace;
+    --display: 'Cinzel', Georgia, serif;
+    --serif: 'Inter', -apple-system, sans-serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+    --mono: 'Inter', -apple-system, sans-serif;
   }
 
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -116,13 +117,13 @@
   }
 
   .section-title {
-    font-family: var(--serif);
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-family: var(--display);
+    font-size: clamp(1.6rem, 3vw, 2.3rem);
     font-weight: 400;
-    line-height: 1.18;
+    line-height: 1.32;
     color: var(--vivio-dark);
     margin-bottom: 1.6rem;
-    letter-spacing: -0.02em;
+    letter-spacing: 0.01em;
   }
 
   .section-subtitle {
@@ -168,16 +169,16 @@
   }
 
   .hero h1 {
-    font-family: var(--serif);
-    font-size: clamp(2.6rem, 5.5vw, 4rem);
+    font-family: var(--display);
+    font-size: clamp(2.1rem, 4.4vw, 3.3rem);
     font-weight: 400;
-    line-height: 1.12;
+    line-height: 1.22;
     color: #ffffff;
-    letter-spacing: -0.03em;
+    letter-spacing: 0.01em;
     margin-bottom: 1.6rem;
   }
   .hero h1 em {
-    font-style: italic;
+    font-style: normal;
     color: var(--vivio-accent);
   }
 
@@ -549,7 +550,7 @@
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
     margin-top: 3rem;
-    max-width: 800px;
+    max-width: 960px;
   }
   .team-card {
     border: 1px dashed var(--border);
@@ -871,6 +872,19 @@
     .pub-inner { flex-direction: column; text-align: center; }
     .pub-metrics { gap: 2rem; }
   }
+
+  /* ─── BRAND TYPOGRAPHY (Cinzel display, Inter text) ─── */
+  .service-card h3, .founder-content h3, .team-info h3, .contact-info-block h3 {
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .section-label, .service-links a, .team-role, .team-links a, .founder-link, .credential {
+    letter-spacing: 0.12em;
+    font-weight: 500;
+  }
+  @media (max-width: 700px) {
+    .section-title br, .hero h1 br { display: none; }
+  }
 </style>
 </head>
 <body>
@@ -902,7 +916,7 @@
       <div class="fade-in">
         <div class="hero-rule"></div>
         <div class="section-label">Biotech Consultancy & Preclinical CRO Partner</div>
-        <h1>Science-led strategy.<br><em>Built from experience.</em></h1>
+        <h1>Science-led strategy. <br><em>Built from experience.</em></h1>
         <p class="hero-text">
           Vivio is a boutique biotech consultancy and emerging preclinical CRO partner that bridges scientific R&D, regulatory affairs, and commercial strategy. Founded by someone who has built the facilities, designed the programmes, written the grants, and led the consortia we consult on.
         </p>
@@ -919,7 +933,7 @@
 <section class="services-section" id="services">
   <div class="container">
     <div class="section-label fade-in">What We Do</div>
-    <h2 class="section-title fade-in">Expertise across the full<br>development lifecycle</h2>
+    <h2 class="section-title fade-in">Expertise across the full <br>development lifecycle</h2>
     <p class="section-subtitle fade-in">Vivio turns deep scientific, regulatory, and commercial expertise into practical decisions that move a programme forward, from first concept through to regulatory submission. Every engagement is grounded in the standards and frameworks your markets actually run on.</p>
 
     <div class="services-grid">
@@ -1039,7 +1053,7 @@
 <section class="founder-section" id="founder">
   <div class="container">
     <div class="section-label fade-in">Founder</div>
-    <h2 class="section-title fade-in">Led by someone who has done<br>everything we consult on</h2>
+    <h2 class="section-title fade-in">Led by someone who has done <br>everything we consult on</h2>
 
     <div class="founder-layout">
       <div class="founder-photo-area fade-in">
@@ -1051,14 +1065,14 @@
       </div>
       <div class="founder-content fade-in" style="transition-delay:0.1s">
         <h3>Soner Gündemir, PhD</h3>
-        <div class="founder-role">Founder & Managing Director · Vivio Research & Consultancy</div>
+        <div class="founder-role">Founder & CEO · Vivio Research & Consultancy</div>
         <div class="founder-links">
           <a class="founder-link" href="https://www.linkedin.com/in/gundemir/" target="_blank" rel="noopener" aria-label="LinkedIn profile">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11.02 5 2.5 2.5 0 01-.02-5zM3 8.98h4V21H3zM9 8.98h3.8v1.64h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.35c0-1.28-.02-2.92-1.78-2.92-1.78 0-2.05 1.39-2.05 2.83V21H9z"/></svg>
             LinkedIn
           </a>
           <a class="founder-link" href="https://orcid.org/0000-0002-9997-3552" target="_blank" rel="noopener" aria-label="ORCID iD">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10.5" stroke="currentColor" stroke-width="1.5"/><text x="12" y="16" text-anchor="middle" font-size="10" font-weight="700" fill="currentColor" font-family="'DM Sans', sans-serif">iD</text></svg>
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10.5" stroke="currentColor" stroke-width="1.5"/><text x="12" y="16" text-anchor="middle" font-size="10" font-weight="700" fill="currentColor" font-family="'Inter', sans-serif">iD</text></svg>
             ORCID iD
           </a>
         </div>
@@ -1122,21 +1136,31 @@
               LinkedIn
             </a>
             <a href="https://orcid.org/0009-0001-5880-4648" target="_blank" rel="noopener" aria-label="ORCID iD">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10.5" stroke="currentColor" stroke-width="1.5"/><text x="12" y="16" text-anchor="middle" font-size="10" font-weight="700" fill="currentColor" font-family="'DM Sans', sans-serif">iD</text></svg>
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10.5" stroke="currentColor" stroke-width="1.5"/><text x="12" y="16" text-anchor="middle" font-size="10" font-weight="700" fill="currentColor" font-family="'Inter', sans-serif">iD</text></svg>
               ORCID iD
             </a>
           </div>
         </div>
       </div>
 
-      <div class="team-card fade-in" style="transition-delay:0.08s">
-        <div class="team-avatar">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-6 8-6s8 2 8 6"/></svg>
+      <div class="team-card member fade-in" style="transition-delay:0.08s">
+        <div class="team-avatar photo">
+          <img src="idil.jpg" alt="İdil Orhon">
         </div>
         <div class="team-info">
-          <h3>New Consultant</h3>
-          <div class="team-role">Profile to be announced</div>
-          <p>An additional consultant is joining Vivio to strengthen our capacity across science and regulatory strategy. Full profile to follow.</p>
+          <h3>İdil Orhon, PhD</h3>
+          <div class="team-role">Consultant</div>
+          <p>İdil is a cell biologist with over 15 years of international R&amp;D experience at INSERM, UMCG, Radboudumc, and Koç University's TIREX. She specialises in patient-derived kidney organoids, tubuloids, and organ-on-chip systems: the new approach methodologies (NAMs) that regulators now actively encourage. Published in Nature and Nature Cell Biology, she strengthens Vivio's NAM strategy, translational study design, and grant development.</p>
+          <div class="team-links">
+            <a href="https://www.linkedin.com/in/idilorhon/" target="_blank" rel="noopener" aria-label="LinkedIn profile">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11.02 5 2.5 2.5 0 01-.02-5zM3 8.98h4V21H3zM9 8.98h3.8v1.64h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.35c0-1.28-.02-2.92-1.78-2.92-1.78 0-2.05 1.39-2.05 2.83V21H9z"/></svg>
+              LinkedIn
+            </a>
+            <a href="https://orcid.org/0000-0002-0779-8719" target="_blank" rel="noopener" aria-label="ORCID iD">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10.5" stroke="currentColor" stroke-width="1.5"/><text x="12" y="16" text-anchor="middle" font-size="10" font-weight="700" fill="currentColor" font-family="'Inter', sans-serif">iD</text></svg>
+              ORCID iD
+            </a>
+          </div>
         </div>
       </div>
     </div>
