@@ -1,53 +1,27 @@
-const root=document.documentElement;
-root.classList.add('js');
-const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
-const motion=document.querySelector('.motion-toggle');
-let paused=reducedMotion.matches;
-function updateMotion(){document.body.classList.toggle('motion-paused',paused);document.body.dataset.visualMotion=paused?'paused':'playing';motion.setAttribute('aria-pressed',String(paused));motion.setAttribute('aria-label',paused?'Resume visual motion':'Pause visual motion');motion.innerHTML=paused?'<span aria-hidden="true">▷</span> Resume motion':'<span aria-hidden="true">Ⅱ</span> Pause motion'}
-updateMotion();motion.addEventListener('click',()=>{paused=!paused;updateMotion()});
-reducedMotion.addEventListener('change',event=>{paused=event.matches;updateMotion()});
-const revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');revealObserver.unobserve(entry.target)}}),{threshold:.08});
-document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
+/* Vivio: local navigation, expertise and email-draft helpers. No submission endpoint. */
+(() => {
+'use strict';
+document.documentElement.classList.add('js');
+const motion=document.querySelector('.motion-toggle'),preference=matchMedia('(prefers-reduced-motion: reduce)');
+if(motion){let paused=preference.matches;const update=()=>{document.body.classList.toggle('motion-paused',paused);document.body.dataset.visualMotion=paused?'paused':'playing';motion.setAttribute('aria-pressed',String(paused));motion.textContent=paused?'Resume motion':'Pause motion';motion.removeAttribute('aria-label')};update();motion.addEventListener('click',()=>{paused=!paused;update()});preference.addEventListener('change',e=>{paused=e.matches;update()})}
 const menu=document.querySelector('.menu-toggle'),nav=document.querySelector('.nav-links');
-function closeMenu(){nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','Open navigation');menu.textContent='☰'}
-menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?'Close navigation':'Open navigation');menu.textContent=open?'×':'☰'});
-nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
-const sectionObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){nav.querySelectorAll('a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+entry.target.id))}}),{rootMargin:'-20% 0px -65% 0px'});
-document.querySelectorAll('section[id]').forEach(el=>sectionObserver.observe(el));
-const topic=document.querySelector('#enquiryTopic'),message=document.querySelector('#enquiryMessage'),name=document.querySelector('#enquiryName'),status=document.querySelector('#formStatus');
-const caseNames={'Avidicure — request a copy':'Avidicure','OneChain — request a copy':'OneChain Immunotherapeutics','Antion — request a copy':'Antion Biosciences','Lift Therapeutics — request a copy':'Lift Therapeutics','BioThrust — request a copy':'BioThrust'};
-const messages=Object.fromEntries(Object.entries(caseNames).map(([topic,company])=>[topic,'Hello Soner,\n\nI would like to request a copy of the '+company+' case study. Please let me know its availability and a suitable time to discuss the analysis.']));
+if(menu&&nav){const close=(focus=false)=>{const wasOpen=nav.classList.contains('open');nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','Open navigation');menu.textContent='☰';if(focus&&wasOpen)menu.focus()};menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?'Close navigation':'Open navigation');menu.textContent=open?'×':'☰'});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>close()));document.addEventListener('keydown',e=>{if(e.key==='Escape')close(true)});document.addEventListener('click',e=>{if(!e.target.closest('.site-header'))close()});document.addEventListener('focusin',e=>{if(!e.target.closest('.site-header'))close()});matchMedia('(min-width:1101px)').addEventListener('change',()=>close())}
+const tabs=[...document.querySelectorAll('.map-topic')];
+function selectTab(tab,focus=false){tabs.forEach(button=>{const active=button===tab;button.setAttribute('aria-selected',String(active));button.tabIndex=active?0:-1;document.getElementById(button.getAttribute('aria-controls')).hidden=!active});if(focus)tab.focus()}
+tabs.forEach((tab,index)=>{tab.addEventListener('click',()=>selectTab(tab));tab.addEventListener('keydown',e=>{let next;if(e.key==='ArrowRight'||e.key==='ArrowDown')next=(index+1)%tabs.length;if(e.key==='ArrowLeft'||e.key==='ArrowUp')next=(index-1+tabs.length)%tabs.length;if(e.key==='Home')next=0;if(e.key==='End')next=tabs.length-1;if(next!==undefined){e.preventDefault();selectTab(tabs[next],true)}})});
+document.querySelectorAll('[data-open-service]').forEach(link=>link.addEventListener('click',()=>{const service=document.getElementById(link.dataset.openService);if(service)service.open=true}));
+function openLinkedService(){let id;try{id=decodeURIComponent(location.hash.slice(1))}catch{return}const target=document.getElementById(id),service=target?.closest('details');if(service&&!service.open){service.open=true;requestAnimationFrame(()=>target.scrollIntoView({block:'start',behavior:'instant'}))}}
+addEventListener('hashchange',openLinkedService);openLinkedService();
+const topic=document.getElementById('enquiryTopic');if(!topic)return;
+const message=document.getElementById('enquiryMessage'),name=document.getElementById('enquiryName'),status=document.getElementById('formStatus'),emailButton=document.getElementById('openEmail'),copyButton=document.getElementById('copyEnquiry'),mailbox='gundemir@vivioresearch.com';
+const reports={'Vivio white paper - request a copy':'the public edition of the Vivio valuation white paper','Avidicure - request a copy':'the Avidicure case study','OneChain - request a copy':'the OneChain Immunotherapeutics case study','Antion - request a copy':'the Antion Biosciences case study'};
 let lastSuggested='';
-function suggestMessage(){const next=messages[topic.value]||'';if(!message.value||message.value===lastSuggested){message.value=next;lastSuggested=next}status.textContent=''}
-topic.addEventListener('change',suggestMessage);
-document.querySelectorAll('[data-topic]').forEach(a=>a.addEventListener('click',()=>{topic.value=a.dataset.topic;suggestMessage();status.textContent=caseNames[topic.value]?caseNames[topic.value]+' selected. Add any context, then open your email draft.':''}));
-function enquiry(){return {subject:'Vivio enquiry: '+topic.value,body:(message.value.trim()||'Hello Soner,\n\nI would like to discuss: '+topic.value)+ (name.value.trim()?'\n\n'+name.value.trim():'')}}
-document.querySelector('#contactForm').addEventListener('submit',e=>{e.preventDefault();const draft=enquiry();window.location.href='mailto:gundemir@vivioresearch.com?subject='+encodeURIComponent(draft.subject)+'&body='+encodeURIComponent(draft.body);status.textContent='Email draft prepared. If your email app does not open, use Copy enquiry and email Soner directly.'});
-document.querySelector('#copyEnquiry').addEventListener('click',async()=>{const draft=enquiry();const text='To: gundemir@vivioresearch.com\nSubject: '+draft.subject+'\n\n'+draft.body;let copied=false;try{await navigator.clipboard.writeText(text);copied=true}catch{}if(!copied){const fallback=document.createElement('textarea');fallback.value=text;fallback.setAttribute('aria-label','Enquiry to copy');fallback.style.cssText='position:fixed;left:-9999px;top:0';document.body.append(fallback);fallback.select();try{copied=document.execCommand('copy')}catch{}fallback.remove()}status.textContent=copied?'Enquiry copied. Paste it into your email app and send it to Soner.':'Please copy your message above and email gundemir@vivioresearch.com.'});
-
-// Interactive expertise guide: one selected topic and its explanatory panel.
-const expertiseTabs=[...document.querySelectorAll('.map-topic')];
-function selectExpertise(tab,focus=false){
- expertiseTabs.forEach(button=>{const active=button===tab;button.setAttribute('aria-selected',String(active));button.tabIndex=active?0:-1;document.getElementById(button.getAttribute('aria-controls')).hidden=!active});
- if(focus)tab.focus();
-}
-expertiseTabs.forEach((tab,index)=>{
- tab.addEventListener('click',()=>selectExpertise(tab));
- tab.addEventListener('keydown',event=>{
- let next=null;
- if(event.key==='ArrowRight')next=(index+1)%expertiseTabs.length;
- if(event.key==='ArrowLeft')next=(index-1+expertiseTabs.length)%expertiseTabs.length;
- if(event.key==='Home')next=0;
- if(event.key==='End')next=expertiseTabs.length-1;
- if(next!==null){event.preventDefault();selectExpertise(expertiseTabs[next],true)}
- });
-});
-document.querySelectorAll('[data-open-service]').forEach(link=>link.addEventListener('click',()=>{const service=document.getElementById(link.dataset.openService);if(service){service.open=true;service.closest('.reveal')?.classList.add('visible')}}));
-function openLinkedService(){
- let id;try{id=decodeURIComponent(window.location.hash.slice(1))}catch{return}
- const target=document.getElementById(id),service=target?.closest('details');
- if(!service||service.open)return;
- service.open=true;service.closest('.reveal')?.classList.add('visible');
- requestAnimationFrame(()=>target.scrollIntoView({block:'start',behavior:'instant'}));
-}
-window.addEventListener('hashchange',openLinkedService);openLinkedService();
+function suggest(){const next=reports[topic.value]?'Hello Soner,\n\nI would like to request a copy of '+reports[topic.value]+'.\n\nThank you.':'';if(!message.value||message.value===lastSuggested){message.value=next;lastSuggested=next}status.textContent=''}
+topic.addEventListener('change',suggest);
+document.querySelectorAll('[data-topic]').forEach(link=>link.addEventListener('click',()=>{topic.value=link.dataset.topic;suggest();status.textContent='Topic selected: '+topic.value+'. Review your message below.';requestAnimationFrame(()=>topic.focus({preventScroll:true}))}));
+if(new URLSearchParams(location.search).get('request')==='whitepaper'){topic.value='Vivio white paper - request a copy';suggest()}
+const draft=()=>({subject:'Vivio enquiry: '+topic.value,body:(message.value.trim()||'Hello Soner,\n\nI would like to discuss: '+topic.value)+(name.value.trim()?'\n\n'+name.value.trim():'')});
+emailButton.disabled=false;copyButton.disabled=false;
+emailButton.addEventListener('click',()=>{const d=draft(),uri='mailto:'+mailbox+'?subject='+encodeURIComponent(d.subject)+'&body='+encodeURIComponent(d.body);if(uri.length>2000){status.textContent='This message is long for an email-app link. Use Copy enquiry, then paste it into an email to '+mailbox+'.';copyButton.focus();return}location.href=uri;status.textContent='Your email app should open a draft. Review and send it there. If it does not open, use Copy enquiry or the email address alongside.'});
+copyButton.addEventListener('click',async()=>{const d=draft(),text='To: '+mailbox+'\nSubject: '+d.subject+'\n\n'+d.body;let copied=false;try{await navigator.clipboard.writeText(text);copied=true}catch{}if(!copied){const fallback=document.createElement('textarea');fallback.className='clipboard-fallback';fallback.value=text;fallback.setAttribute('aria-label','Enquiry to copy');document.body.append(fallback);fallback.select();try{copied=document.execCommand('copy')}catch{}fallback.remove();copyButton.focus()}status.textContent=copied?'Enquiry copied. Paste it into your email app and send it to Soner.':'Copy your message from the field above and email it to '+mailbox+'.'});
+})();
